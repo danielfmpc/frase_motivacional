@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lime,
       ),
       home: MyHomePage(title: 'Frases do dia'),
     );
@@ -28,11 +30,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  
+  int _numeroAelatorio = 0;
+  List _frases = [
+    'O importante não é vencer todos os dias, mas lutar sempre.',
+    'É melhor consquitar a si mesmo do que vencer mil batalhas',
+    'O medo de perder tira a vontate de ganhar',
+    'Perder para a razão, sempre é ganhar'
+  ];
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      _numeroAelatorio = new Random().nextInt(4);
     });
   }
 
@@ -50,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'Pressione o botão para gerar uma frase',
             ),
             Text(
-              '$_counter',
+              '$_numeroAelatorio',
               style: Theme.of(context).textTheme.display1,
             ),
           ],
